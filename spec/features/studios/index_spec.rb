@@ -24,7 +24,6 @@ RSpec.describe 'studio index' do
     expect(page).to have_content(@warner.location)
     expect(page).to have_content(@paramount.name)
     expect(page).to have_content(@paramount.location)
-    save_and_open_page
   end
 
   it 'shows titles of all studio movies' do
