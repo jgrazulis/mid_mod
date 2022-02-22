@@ -21,14 +21,25 @@ RSpec.describe 'movie show page' do
     expect(page).to have_content(@jurassic2.title)
     expect(page).to have_content(@jurassic2.creation_year)
     expect(page).to have_content(@jurassic2.genre)
+    expect(page).to_not have_content(@harry.title)
   end
 
   it 'lists actors from youngest to oldest' do
     expect(@bryce.name).to appear_before(@chris.name)
     expect(@chris.name).to appear_before(@judy.name)
+    expect(page).to_not have_content(@emma.name)
   end
 
   it 'shows avg age of actors' do
     expect(page).to have_content("Average Actor Age: 45")
+  end
+
+  it 'includes link to add an actor to a movie' do
+    expect(page).to have_content("Add Actor to Movie")
+    fill_in('Name', with: 'Vincent DOnofrio')
+    fill_in('Age', with: 50)
+    click_on 'Add Actor'
+    expect(current_path).to eq("/movies/#{@jurassic2.id}")
+    expect(page).to have_content('Vincent DOnofrio')
   end
 end
