@@ -17,3 +17,8 @@ harry = warner.movies.create!(title: "Harry Potter and the Sorcerer's Stone", cr
 harry2 = warner.movies.create!(title: "Harry Potter and the Chamber of Secrets", creation_year: 2002, genre: "Fantasy")
 shrek = paramount.movies.create!(title: "Shrek", creation_year: 2001, genre: "Comedy")
 shrek2 = paramount.movies.create!(title: "Shrek 2", creation_year: 2004, genre: "Comedy")
+
+emma = harry.actors.create!(name: "Emma Watson", age: 25)
+chris = jurassic2.actors.create!(name: "Chris Pratt", age: 45)
+bryce = jurassic2.actors.create!(name: "Bryce Dallas Howard", age: 40)
+judy = jurassic2.actors.create!(name: "Judy Greer", age: 45)
